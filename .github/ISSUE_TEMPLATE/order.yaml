@@ -1,0 +1,96 @@
+name: Order Report
+description: PCB order report form
+title: "[order]: XXXXXX-YYMMDD"
+labels: ["order"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Example title: `JLC-240625`
+        Fill out the form in accordance with the order. 
+        
+  - type: dropdown
+    id: provider-pcb
+    attributes:
+      label: "Provider PCB:"
+      description: Who makes the PCB?
+      options:
+        - jlc.com
+        - jlcpcb.com
+        - rezonit.ru
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider-smt
+    attributes:
+      label: "Provider SMT:"
+      description: Who does the PCB assembly?
+      options:
+        - jlc.com
+        - jlcpcb.com
+        - rezonit.ru
+        - himself
+        - not-required
+      default: 0
+    validations:
+      required: false
+        
+  - type: input
+    id: releases-url
+    attributes:
+      label: "Releases `URL`:"
+      description: Insert the link to the release used in the order here.
+      placeholder: |
+        https://github.com/Artel-Inc/xxx/releases/tag/vX.X
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        The fields below are processed by an automated system. Follow the syntax!!!. 
+      
+  - type: textarea
+    id: component-replacements
+    attributes:
+      label: "List of component replacements:"
+      description: |
+        Use the `/CHG` operator to replace text in a project.
+        You can only make replacements for existing fields.
+        Preferably use `lcsc pn`.
+        ```
+        /CHG WORD1 WORD2
+        /CHG C528661 C528762
+        /CHG 9000121574 9000322621
+        /CHG CA-IS3020S CA-IS3021S
+        ```
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: components-purchase
+    attributes:
+      label: "List of components for additional purchase:"
+      description: |
+        Use `/EXT` to indicate parts that require additional purchase.
+        Based on this, a new `BOM` file will be generated for additional purchase.
+        Preferably use unique fields from bom, such as `lcsc pn`
+        ```
+        /EXT WORD1
+        /EXT C528661
+        /EXT 74HC595
+        ```
+      render: shell
+    validations:
+      required: false
+      
+  - type: textarea
+    id: special-notes
+    attributes:
+      label: "Special notes:"
+      description: Tell us about your observations
+    validations:
+      required: false

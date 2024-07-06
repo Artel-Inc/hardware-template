@@ -1,0 +1,30 @@
+name: "KiCad ERC/DRC"
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'hardware*/*.kicad_pro'
+      - 'hardware*/*.kicad_sch'
+      - 'hardware*/*.kicad_pcb'
+      - 'hardware*/*.kicad_dru'
+  pull_request:
+    paths:
+      - 'hardware*/*.kicad_pro'
+      - 'hardware*/*.kicad_sch'
+      - 'hardware*/*.kicad_pcb'
+      - 'hardware*/*.kicad_dru'
+
+jobs:
+  Checking:
+    runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad8_auto:1.7.0
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4
+    - name: Run ERC
+      run: |
+        for arg in hardware*; do echo "Checking: ${arg}"; kicad-cli sch erc --severity-error --exit-code-violations ${arg}/main.kicad_sch; cat main.rpt; done
+    - name: Run DRC
+      run: |
+        for arg in hardware*; do echo "Checking: ${arg}"; kicad-cli pcb drc --schematic-parity --severity-error --exit-code-violations ${arg}/main.kicad_pcb; cat main.rpt; done

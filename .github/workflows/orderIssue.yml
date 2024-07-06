@@ -1,0 +1,90 @@
+name: "Issue Order"
+
+on:
+  issues:
+    types:
+      - labeled      
+
+env:
+  ARTIFACT_NAME: ${{ github.event.repository.name }}_order_issue${{ github.event.issue.number }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  IssueOrder:
+    runs-on: ubuntu-latest
+    container: ghcr.io/inti-cmnb/kicad8_auto:1.7.0
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4
+
+    - name: Issue to markdown
+      uses: MuratovAS/issue-to-markdown@v1.2.3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        dest: 'content-issue'
+        label: 'order'
+        
+    - name: Checking issue file
+      id: checking-issue
+      run: |
+        if [ -f content-issue/${{ github.event.issue.number }}/index.md ]; then\
+         echo "skipIssue=false" > $GITHUB_OUTPUT; fi         
+      
+    - name: Command Processing
+      if: ${{ steps.checking-issue.outputs.skipIssue == 'false' }}
+      id: command-processing
+      run: |
+        # github for some reason pushes the \r character in the text
+        sed -i 's/\r//g' content-issue/${{ github.event.issue.number }}/index.md
+        
+        for arg in ./hardware*; do .github/scripts/KiExport.sh -n ${GITHUB_REPOSITORY#*/}_`basename $arg` -v ${GITHUB_REF_NAME} -k $arg -o content-issue/${{ github.event.issue.number }} -b; \
+        .github/scripts/orderIssue.sh content-issue/${{ github.event.issue.number }}/index.md $arg content-issue/${{ github.event.issue.number }}/${GITHUB_REPOSITORY#*/}_`basename $arg`_${GITHUB_REF_NAME}_bom.csv
+        done
+
+        for arg in content-issue/${{ github.event.issue.number }}/*.extract.csv; do \
+          if [ -f $arg ]; then echo "skipBOM=false" > $GITHUB_OUTPUT; fi 
+        done 
+        
+    - name: Upload artifact (BOM)
+      if: ${{ steps.command-processing.outputs.skipBOM == 'false' && steps.checking-issue.outputs.skipIssue == 'false' }}
+      id: upload-artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.ARTIFACT_NAME }}
+        path: |
+          content-issue/${{ github.event.issue.number }}/*.csv
+
+    - name: Create comment (BOM)
+      if: ${{ steps.command-processing.outputs.skipBOM == 'false' && steps.checking-issue.outputs.skipIssue == 'false' }}
+      uses: peter-evans/create-or-update-comment@v4
+      with:
+        issue-number: ${{ github.event.issue.number }}
+        #${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        body: |
+          `BOM` for additional purchase of parts:
+          ${{ steps.upload-artifact.outputs.artifact-url }}
+          NOTE: The archive may contain third-party boards. Select only those that were in the order.
+          NOTE: The number of parts in the BOM may be overstated.
+          
+    - name: Clean source file (SRC)
+      if: ${{ steps.checking-issue.outputs.skipIssue == 'false' }}
+      run: |   
+        rm -rf content-issue
+        
+    - name: Create Pull Request (SRC)
+      if: ${{ steps.checking-issue.outputs.skipIssue == 'false' }}
+      uses: peter-evans/create-pull-request@v6
+      with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: |
+            [order] Updating `components` from "${{ github.event.issue.title }}"
+          commit-message: |
+            Updating components from #${{ github.event.issue.number }}  
+          body: |
+            Auto-replace fields from:
+            - #${{ github.event.issue.number }}
+          branch: update-pn-${{ github.event.issue.number }}

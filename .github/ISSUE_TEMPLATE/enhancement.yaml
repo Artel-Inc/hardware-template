@@ -1,0 +1,36 @@
+name: Enhancement Report
+description: Enhancement form
+title: "[enhancement]: Great idea"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Briefly formulate the idea/suggestion and write it in the title.
+
+  - type: input
+    id: releases-url
+    attributes:
+      label: "Releases `URL`:"
+      description: Insert the link to the release here, according to your board.
+      placeholder: |
+        https://github.com/Artel-Inc/xxx/releases/tag/vX.X
+    validations:
+      required: false
+
+  - type: textarea
+    id: identifier
+    attributes:
+      label: "Why do you want to improve it?"
+      description: Describe the problem you are solving.
+      render: shell
+    validations:
+      required: false
+      
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: "Describe the implementation of your proposal:"
+      description: How would you solve the stated problem?
+    validations:
+      required: true
