@@ -1,51 +1,40 @@
 (version 1)
-#Kicad 7
+#Kicad 8
 
-# ----------------------------------- Minimum trace width (PICK ONE) --------------------
+# ----------------------------------- Minimum trace width --------------------
 
-# 2oz copper
-#(rule "Minimum Trace Width"
-#	(constraint track_width (min 0.2mm))
-#	(condition "A.Type == 'track'"))
+# Recommended:
+# 0.200 - 2-layer
+# 0.127 - 4-layer
+# 0.127 - 6-layer
+# 0.200 - X-layer 2oz
+# 
+# Absolute maximum (jlc):
+# 0.10 - 2-layer 1oz
+# 0.09 - Multilayer 1oz
+# 0.16 - 2-layer 2oz
+# 0.16 - Multilayer 2oz ?
 
-# 2-layer, 1oz copper
-#(rule "Minimum Trace Width (outer layer)"
-#	(constraint track_width (min 0.127mm))
-#	(condition "A.Type == 'track'"))
-
-# 4-layer , 1oz and 0.5oz copper
-#(rule "Minimum Trace Width"
-#	(constraint track_width (min 0.09mm))
-#	(condition "A.Type == 'track'"))
-
-# 6-layer, 1oz copper
 (rule "Minimum Trace Width"
-	(constraint track_width (min 0.127mm))
+	(constraint track_width (min 0.2mm))
 	(condition "A.Type == 'track'"))
-### FIX
 
-# ----------------------------------- Minimum trace spacing (PICK ONE) --------------------
+# ----------------------------------- Minimum trace spacing --------------------
 
-# 2oz copper
-#(rule "Minimum Trace Spacing"
-#	(constraint clearance (min 0.2mm))
-#	(condition "A.Type == 'track' && B.Type != 'zone'"))
+# Recommended:
+# 0.200 - 2-layer
+# 0.127 - Multilayer
+# 0.200 - X-layer 2oz
+# 
+# Absolute maximum (jlc):
+# 0.10 - 2-layer 1oz
+# 0.09 - Multilayer 1oz
+# 0.16 - 2-layer 2oz
+# 0.20 - Multilayer 2oz ?
 
-# 2-layer, 1oz copper
-#(rule "Minimum Trace Spacing (outer layer)"
-#	(constraint clearance (min 0.127mm))
-#	(condition "A.Type == 'track' && B.Type != 'zone'"))
-
-# 4-layer , 1oz and 0.5oz copper
-#(rule "Minimum Trace Spacing"
-#	(constraint clearance (min 0.09mm))
-#	(condition "A.Type == 'track' && B.Type != 'zone'"))
-
-# 6-layer, 1oz copper
 (rule "Minimum Trace Spacing"
-	(constraint clearance (min 0.127mm))
+	(constraint clearance (min 0.2mm))
 	(condition "A.Type == 'track' && B.Type != 'zone'"))
-### FIX
 
 # ------------------------------------------------------------------------------------------------------
 
@@ -55,48 +44,24 @@
 
 # ----------------------------------- Via hole/diameter size (PICK ONE) ------------------------------------
 
-# 2-layer standard
-#(rule "Minimum Via Diameter and Hole Size"
-#	(constraint hole_size (min 0.3mm))
-#	(constraint via_diameter (min 0.5mm))
-#	(constraint disallow buried_via)
-#	(condition "A.Type == 'via'"))
+# Recommended:
+# 0.30/0.60 - 2-layer
+# 0.30/0.60 - 4-layer
+# 0.30/0.50 - Multilayer
+# 
+# Absolute maximum (jlc):
+# 0.30/0.60 - 2-layer standard ? (PTH annular ring, absolute minimum 0.18 mm)
+# 0.30/0.50 - Multilayer standard
+# 0.30/0.45 - Multilayer special
+# 0.25/0.40 - Multilayer special
+# 0.20/0.35 - Multilayer special
+# 0.15/0.30 - Multilayer special
 
-# 4-layer standard
-#(rule "Minimum Via Diameter and Hole Size"
-#	(constraint hole_size (min 0.3mm))
-#	(constraint via_diameter (min 0.45mm))
-#	(constraint disallow buried_via)
-#	(condition "A.Type == 'via'"))
-
-# 4-layer special
-#(rule "Minimum Via Diameter and Hole Size"
-#	(constraint hole_size (min 0.25mm))
-#	(constraint via_diameter (min 0.4mm))
-#	(constraint disallow buried_via)
-#	(condition "A.Type == 'via'"))
-
-# 4-layer special
-#(rule "Minimum Via Diameter and Hole Size"
-#	(constraint hole_size (min 0.2mm))
-#	(constraint via_diameter (min 0.35mm))
-#	(constraint disallow buried_via)
-#	(condition "A.Type == 'via'"))
-
-# 4-layer special
-#(rule "Minimum Via Diameter and Hole Size"
-#	(constraint hole_size (min 0.15mm))
-#	(constraint via_diameter (min 0.3mm))
-#	(constraint disallow buried_via)
-#	(condition "A.Type == 'via'"))
-
-# 6-layer
 (rule "Minimum Via Diameter and Hole Size"
 	(constraint hole_size (min 0.3mm))
-	(constraint via_diameter (min 0.5mm))
+	(constraint via_diameter (min 0.6mm))
 	(constraint disallow buried_via)
 	(condition "A.Type == 'via'"))
-##FIX
 
 # ----------------------------------- Drill/hole size ------------------------------------
 
@@ -164,26 +129,21 @@
 
 # ----------------------------------- Board Outlines (PICK ONE) -------------------------------------
 #Default Routed Edge Clearance
-#(rule "Trace to Outline"
-#	(constraint edge_clearance (min 0.3mm))
-#	(condition "A.Type == 'track'"))
+# (rule "Trace to Outline"
+# 	(constraint edge_clearance (min 0.3mm))
+# 	(condition "A.Type == 'track'"))
 
 #Special Clearance for V-Score Edges
 (rule "Trace to V-Cut"
-	(constraint edge_clearance (min 0.4mm))
-	(condition "A.Type == 'track'"))
+(constraint edge_clearance (min 0.4mm))
+(condition "A.Type == 'track'"))
 
-# ----------------------------------- silkscreen (Kicad 7 only) --------------------------
-#(rule "Minimum Text"
-#	(constraint text_thickness (min 0.15mm))
-#	(constraint text_height (min 1mm))
-#	(layer "?.Silkscreen"))
-
+# ----------------------------------- Silkscreen --------------------------
 (rule "Minimum Text"
-	(constraint text_thickness (min 0.1mm))
-	(constraint text_height (min 0.6mm))
+	(constraint text_thickness (min 0.15mm))
+	# (constraint text_height (min 1mm)) # (JLC Minimum text height 1mm)
+	(constraint text_height (min 0.6mm)) # (JLC Produces 0.6 without problems)
 	(layer "?.Silkscreen"))
-### FIX
 
 #JLCPCB pad to silkscreen clearance rule is actually 0.15mm, but KiCad libraries violate that slightly, so JLC will have to deal with it.
 (rule "Pad to Silkscreen"

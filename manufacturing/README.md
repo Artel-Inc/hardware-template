@@ -1,1 +1,0 @@
-The directory contains step models, photos and notes on assembly and installation.

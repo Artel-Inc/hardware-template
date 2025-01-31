@@ -3,7 +3,7 @@
 	(generator "pcbnew")
 	(generator_version "8.0")
 	(general
-		(thickness 1.5484)
+		(thickness 1.5742)
 		(legacy_teardrops no)
 	)
 	(paper "A5")
@@ -11,16 +11,14 @@
 		(title "SET!!!")
 		(date "SET!!!")
 		(rev "VERV")
-		(company "ELT")
+		(company "SET!!!")
 		(comment 2 "SET!!!")
 		(comment 3 "SET!!!")
 	)
 	(layers
-		(0 "F.Cu" mixed)
+		(0 "F.Cu" signal)
 		(1 "In1.Cu" power)
-		(2 "In2.Cu" signal)
-		(3 "In3.Cu" power)
-		(4 "In4.Cu" power)
+		(2 "In2.Cu" power)
 		(31 "B.Cu" signal)
 		(32 "B.Adhes" user "B.Adhesive")
 		(33 "F.Adhes" user "F.Adhesive")
@@ -51,7 +49,6 @@
 			)
 			(layer "F.Mask"
 				(type "Top Solder Mask")
-				(color "Green")
 				(thickness 0.005)
 			)
 			(layer "F.Cu"
@@ -60,10 +57,10 @@
 			)
 			(layer "dielectric 1"
 				(type "prepreg")
-				(thickness 0.0994)
+				(thickness 0.0994 locked)
 				(material "3313")
-				(epsilon_r 4.5)
-				(loss_tangent 0.02)
+				(epsilon_r 4.1)
+				(loss_tangent 0.002)
 			)
 			(layer "In1.Cu"
 				(type "copper")
@@ -71,9 +68,10 @@
 			)
 			(layer "dielectric 2"
 				(type "core")
-				(thickness 0.55)
+				(color "FR4 natural")
+				(thickness 1.265 locked)
 				(material "FR4")
-				(epsilon_r 4.5)
+				(epsilon_r 4.6)
 				(loss_tangent 0.02)
 			)
 			(layer "In2.Cu"
@@ -82,32 +80,10 @@
 			)
 			(layer "dielectric 3"
 				(type "prepreg")
-				(thickness 0.1088)
-				(material "2216")
-				(epsilon_r 4.5)
-				(loss_tangent 0.02)
-			)
-			(layer "In3.Cu"
-				(type "copper")
-				(thickness 0.0152)
-			)
-			(layer "dielectric 4"
-				(type "core")
-				(thickness 0.55)
-				(material "FR4")
-				(epsilon_r 4.5)
-				(loss_tangent 0.02)
-			)
-			(layer "In4.Cu"
-				(type "copper")
-				(thickness 0.0152)
-			)
-			(layer "dielectric 5"
-				(type "prepreg")
-				(thickness 0.0994)
+				(thickness 0.0994 locked)
 				(material "3313")
-				(epsilon_r 4.5)
-				(loss_tangent 0.02)
+				(epsilon_r 4.1)
+				(loss_tangent 0.002)
 			)
 			(layer "B.Cu"
 				(type "copper")
@@ -115,7 +91,6 @@
 			)
 			(layer "B.Mask"
 				(type "Bottom Solder Mask")
-				(color "Green")
 				(thickness 0.005)
 			)
 			(layer "B.Paste"
@@ -124,8 +99,8 @@
 			(layer "B.SilkS"
 				(type "Bottom Silk Screen")
 			)
-			(copper_finish "Immersion gold")
-			(dielectric_constraints no)
+			(copper_finish "HAL SnPb")
+			(dielectric_constraints yes)
 		)
 		(pad_to_mask_clearance 0)
 		(allow_soldermask_bridges_in_footprints no)
@@ -190,6 +165,28 @@
 		(layer "Dwgs.User")
 		(uuid "5243a095-e707-45ff-a146-a83980720831")
 	)
+	(gr_arc
+		(start 34.000001 54.000001)
+		(mid 31.171573 52.828428)
+		(end 30 50)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "04c544f8-5a87-4ea0-bd0b-3832c92c5517")
+	)
+	(gr_arc
+		(start 50 30)
+		(mid 52.828428 31.171573)
+		(end 54.000001 34.000001)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "0be71042-e82b-4d86-9bbf-f82b14f326a6")
+	)
 	(gr_line
 		(start 34 30)
 		(end 50 30)
@@ -199,6 +196,37 @@
 		)
 		(layer "Edge.Cuts")
 		(uuid "32420774-041b-427a-ba95-49513e863289")
+	)
+	(gr_arc
+		(start 54 50)
+		(mid 52.828427 52.828428)
+		(end 49.999999 54.000001)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "53e199d3-5d60-4b04-a29f-1c6faef5a720")
+	)
+	(gr_line
+		(start 54 49.999999)
+		(end 54 34)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "616d7049-d10c-4ffb-8686-537f67a2c506")
+	)
+	(gr_line
+		(start 49.999999 54.000001)
+		(end 33.999999 54.000001)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "6c5ab8f6-ea0c-48ad-aad5-a8ae200bef9c")
 	)
 	(gr_arc
 		(start 29.999999 34.000001)
@@ -211,28 +239,6 @@
 		(layer "Edge.Cuts")
 		(uuid "926c1e92-b704-4125-beee-5a873cfc4da8")
 	)
-	(gr_arc
-		(start 50 30)
-		(mid 52.828428 31.171573)
-		(end 54.000001 34.000001)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "93e0c87a-64d9-4498-a071-018c65a3cf8f")
-	)
-	(gr_arc
-		(start 54 50)
-		(mid 52.828427 52.828428)
-		(end 49.999999 54.000001)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "a50aed70-4750-4ec1-af9b-763ba876447a")
-	)
 	(gr_line
 		(start 29.999999 34.000001)
 		(end 29.999999 50)
@@ -242,36 +248,5 @@
 		)
 		(layer "Edge.Cuts")
 		(uuid "b63d02d3-6342-4c27-ac2e-268e2ac8f3ad")
-	)
-	(gr_line
-		(start 49.999999 54.000001)
-		(end 34 54.000001)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "cae4907a-87ee-4a4c-95ca-20d359877e71")
-	)
-	(gr_arc
-		(start 34 54.000001)
-		(mid 31.171572 52.828428)
-		(end 29.999999 50)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "e07d1935-4f59-41fa-bd1c-0ad973e30409")
-	)
-	(gr_line
-		(start 54 49.999999)
-		(end 54 34)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "f6f6389d-2fb6-4936-a061-35cf5f18ed3f")
 	)
 )

@@ -1,33 +1,45 @@
 # Before use you should:
 
 - Select board stack
-- Rename the required stack (`hardware-4l` --> `hardware`)
+  
+  ```
+  Use thickness: 1.6mm (default), 1.2mm 
+  
+  2 layers
+  JLC0216 (default) [I Recommend]
+  
+  4 layers 
+  JLC04161H-7628 (default)
+  JLC04161H-3313 [I Recommend]
+  
+  6 layers
+  JLC04161H-7628 (additional payment)
+  JLC06161H-3313 (default) [I Recommend]
+  
+  Transition from `JLC06161H-3313` to `JLC04161H-3313`
+  is possible, impedance of outer layers will be the same.
+  ```
+  
+  
+- Move the `.kicad_pro` file you selected to the directory `hardware`
+- Move the `.kicad_pcb` file you selected to the directory `hardware`
+- Rename all files in the `hardware` directory to `main`
+- Delete all unused files (`.kicad_pro`/`.kicad_pcb`) in `/` and `calc`
+- create a directory if necessary (`manufacturing`,`docs`)
 - Complete the README.md file
-- Fill in the frame in the PCB and schematic file
-- Delete all unused files (exampl. `calc`)
-
+- Fill in the frame in the PCB and schematic file (all fields marked `SET!!!`)
+- Adjust as needed `hardware/main.kicad_dru`
 
 # XXX
+
 XXX hardware template - transcript
 
-## Jumpers:
-
-```
-jp1 - xxx [connector A]
-```
-
-## Features:
-
-| Сonnectors | Pin                      | Direction | Limits  | Description  |
-| ---------- | ------------------------ | --------- | ------- | ------------ |
-| A          | 1,2 - xxx<br />3,4 - xxx | I/        | 1-2v    | power input  |
+STACK: XXX
 
 ## Note:
 
-### URL
-- https://xxx.xxx/xxxx
-
 ## Changelog:
 
-### v 0.1
+### v 0.0.1
+
 - Init
