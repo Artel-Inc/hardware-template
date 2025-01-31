@@ -16,7 +16,7 @@
 # 0.16 - Multilayer 2oz ?
 
 (rule "Minimum Trace Width"
-	(constraint track_width (min 0.2mm))
+	(constraint track_width (min 0.127mm))
 	(condition "A.Type == 'track'"))
 
 # ----------------------------------- Minimum trace spacing --------------------
@@ -33,7 +33,7 @@
 # 0.20 - Multilayer 2oz ?
 
 (rule "Minimum Trace Spacing"
-	(constraint clearance (min 0.2mm))
+	(constraint clearance (min 0.127mm))
 	(condition "A.Type == 'track' && B.Type != 'zone'"))
 
 # ------------------------------------------------------------------------------------------------------
