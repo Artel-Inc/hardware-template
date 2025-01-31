@@ -9,14 +9,14 @@
   JLC0216 (default) [I Recommend]
   
   4 layers 
-  JLC04161H-7628 (default)
-  JLC04161H-3313 [I Recommend]
+  JLC04xx1H-7628 (default)
+  JLC04xx1H-3313 [I Recommend]
   
   6 layers
-  JLC04161H-7628 (additional payment)
-  JLC06161H-3313 (default) [I Recommend]
+  JLC04xx1H-7628 (additional payment)
+  JLC06xx1H-3313 (default) [I Recommend]
   
-  Transition from `JLC06161H-3313` to `JLC04161H-3313`
+  Transition from `JLC06xx1H-3313` to `JLC04xx1H-3313`
   is possible, impedance of outer layers will be the same.
   ```
   
