@@ -277,7 +277,7 @@
 	(zone
 		(net 0)
 		(net_name "")
-		(layer "F.Cu")
+		(layers "F&B.Cu")
 		(uuid "8cb85212-8b9c-46c2-a04c-18ad27295f62")
 		(hatch edge 0.5)
 		(connect_pads
@@ -296,6 +296,32 @@
 		(polygon
 			(pts
 				(xy 29 29) (xy 55 29) (xy 55 55) (xy 29 55)
+			)
+		)
+	)
+	(zone
+		(net 0)
+		(net_name "")
+		(layers "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu")
+		(uuid "d670b5d7-7f84-45a9-bea5-2257f717cf5c")
+		(hatch edge 0.5)
+		(priority 1)
+		(connect_pads
+			(clearance 0.2)
+		)
+		(min_thickness 0.2)
+		(filled_areas_thickness no)
+		(fill
+			(thermal_gap 0.2)
+			(thermal_bridge_width 0.5)
+			(smoothing fillet)
+			(radius 1)
+			(island_removal_mode 1)
+			(island_area_min 10)
+		)
+		(polygon
+			(pts
+				(xy 28 28) (xy 56 28) (xy 56 56) (xy 28 56)
 			)
 		)
 	)
