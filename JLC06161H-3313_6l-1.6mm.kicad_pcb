@@ -274,4 +274,29 @@
 		(layer "Edge.Cuts")
 		(uuid "f6f6389d-2fb6-4936-a061-35cf5f18ed3f")
 	)
+	(zone
+		(net 0)
+		(net_name "")
+		(layer "F.Cu")
+		(uuid "8cb85212-8b9c-46c2-a04c-18ad27295f62")
+		(hatch edge 0.5)
+		(connect_pads
+			(clearance 0.127)
+		)
+		(min_thickness 0.127)
+		(filled_areas_thickness no)
+		(fill
+			(thermal_gap 0.127)
+			(thermal_bridge_width 0.5)
+			(smoothing fillet)
+			(radius 1)
+			(island_removal_mode 1)
+			(island_area_min 10)
+		)
+		(polygon
+			(pts
+				(xy 29 29) (xy 55 29) (xy 55 55) (xy 29 55)
+			)
+		)
+	)
 )
