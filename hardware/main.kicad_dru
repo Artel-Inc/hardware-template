@@ -141,8 +141,10 @@
 # ----------------------------------- Silkscreen --------------------------
 (rule "Minimum Text"
 	(constraint text_thickness (min 0.15mm))
-	# (constraint text_height (min 1mm)) # (JLC Minimum text height 1mm)
-	(constraint text_height (min 0.6mm)) # (JLC Produces 0.6 without problems)
+	# (JLC Minimum text height 1mm)
+	# (constraint text_height (min 1mm))
+	# (JLC Produces 0.6 without problems)
+	(constraint text_height (min 0.6mm))
 	(layer "?.Silkscreen"))
 
 #JLCPCB pad to silkscreen clearance rule is actually 0.15mm, but KiCad libraries violate that slightly, so JLC will have to deal with it.
