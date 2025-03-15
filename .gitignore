@@ -10,8 +10,6 @@ _autosave-*
 manufacturing/old
 fp-info-cache
 replicate_layout.log
-*.kicad_pro
-!main.kicad_pro
 *.kicad_sch-bak
 *.kicad_pcb-bak
 ~*.lck
