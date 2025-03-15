@@ -122,6 +122,57 @@
 	)
 	(net 0 "")
 	(gr_line
+		(start 47.749999 37.874999)
+		(end 45.500001 37.874998)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "0b17f976-a3b7-420e-9dd8-b1f7df76da22")
+	)
+	(gr_line
+		(start 47.749999 37.874999)
+		(end 47.75 35.625)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "40fdecbb-083d-4882-a1c3-4dc0446a7ff9")
+	)
+	(gr_line
+		(start 45.5 35.624999)
+		(end 45.500001 37.874998)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "8a25a8e2-c01c-4215-a8b7-29817698f92f")
+	)
+	(gr_line
+		(start 47.75 35.625)
+		(end 45.5 35.624999)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "8a5e4228-fa8f-4e79-a9a9-34edba54ab6e")
+	)
+	(gr_rect
+		(start 36.5 39)
+		(end 41.5 44)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill solid)
+		(layer "F.SilkS")
+		(uuid "fa853e0c-3ed8-4f2e-829c-ad59f6fd44db")
+	)
+	(gr_line
 		(start 30 31)
 		(end 30 29)
 		(stroke
@@ -225,10 +276,128 @@
 		(layer "Edge.Cuts")
 		(uuid "f6c126b3-482a-482d-90d5-5eb7ef369fd7")
 	)
+	(gr_text "TES"
+		(at 36.5 36.25 0)
+		(layer "F.SilkS")
+		(uuid "7bdefbd0-6765-4b4d-aaa2-1998c29d58b4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+				(bold yes)
+				(italic yes)
+			)
+			(justify left)
+		)
+	)
+	(gr_text "JLCJLCJLCJLC"
+		(at 41.5 46 0)
+		(layer "F.SilkS")
+		(uuid "8103de22-89f5-4341-a26e-71fcef38e1ba")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "VERV"
+		(at 44.75 36.374999 0)
+		(layer "F.SilkS")
+		(uuid "a332cbd3-1ec2-49ef-beef-555777c9bb45")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+				(italic yes)
+			)
+			(justify right)
+		)
+	)
+	(gr_text "test test test"
+		(at 36.5 37.499999 0)
+		(layer "F.SilkS")
+		(uuid "cd7aeb34-2f03-4657-8cd1-aa30d4322394")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.15)
+				(bold yes)
+			)
+			(justify left)
+		)
+	)
+	(dimension
+		(type aligned)
+		(layer "Dwgs.User")
+		(uuid "4782cbbb-e759-46f8-b87a-7e3f091f1798")
+		(pts
+			(xy 49.999999 54.000001) (xy 50 30)
+		)
+		(height 7.999999)
+		(gr_text "24,0000 mm"
+			(at 56.849999 42 89.99999523)
+			(layer "Dwgs.User")
+			(uuid "4782cbbb-e759-46f8-b87a-7e3f091f1798")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 1)
+			(precision 4)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(extension_height 0.58642)
+			(extension_offset 0.5) keep_text_aligned)
+	)
+	(dimension
+		(type aligned)
+		(layer "Dwgs.User")
+		(uuid "9c2212d4-c7d5-4dad-bcd2-5a26d0f15a28")
+		(pts
+			(xy 30 50) (xy 54 50)
+		)
+		(height 7.999999)
+		(gr_text "24,0000 mm"
+			(at 42 56.849999 0)
+			(layer "Dwgs.User")
+			(uuid "9c2212d4-c7d5-4dad-bcd2-5a26d0f15a28")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 1)
+			(precision 4)
+		)
+		(style
+			(thickness 0.1)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(extension_height 0.58642)
+			(extension_offset 0.5) keep_text_aligned)
+	)
 	(zone
 		(net 0)
 		(net_name "")
-		(layer "F.Cu")
+		(layers "F&B.Cu")
 		(uuid "8cb85212-8b9c-46c2-a04c-18ad27295f62")
 		(hatch edge 0.5)
 		(connect_pads
@@ -248,6 +417,22 @@
 			(pts
 				(xy 29 29) (xy 55 29) (xy 55 55) (xy 29 55)
 			)
+		)
+	)
+	(group ""
+		(uuid "1c8e2965-41f6-4fbb-a1b5-ae79a761eae3")
+		(members "fa853e0c-3ed8-4f2e-829c-ad59f6fd44db")
+	)
+	(group ""
+		(uuid "748d87da-56c5-4fbc-abe9-23436110b249")
+		(members "7bdefbd0-6765-4b4d-aaa2-1998c29d58b4" "a332cbd3-1ec2-49ef-beef-555777c9bb45"
+			"cd7aeb34-2f03-4657-8cd1-aa30d4322394"
+		)
+	)
+	(group ""
+		(uuid "94446294-bd43-434e-b507-b72d60e68099")
+		(members "0b17f976-a3b7-420e-9dd8-b1f7df76da22" "40fdecbb-083d-4882-a1c3-4dc0446a7ff9"
+			"8a25a8e2-c01c-4215-a8b7-29817698f92f" "8a5e4228-fa8f-4e79-a9a9-34edba54ab6e"
 		)
 	)
 )
