@@ -3,25 +3,22 @@ name: "KiCad Release"
 on:
   push:
     tags:
-      - 'v*.*'
+      - 'v*.*.*'
 
 jobs:
   Release:
     runs-on: ubuntu-latest
-    container: ghcr.io/inti-cmnb/kicad8_auto:1.7.0
+    container: ghcr.io/inti-cmnb/kicad9_auto:1.8.2
     steps:
-    - name: Setting up the environment
-      run: |
-        apt update
-        apt -y install zip rename
     - name: Check out repository code
       uses: actions/checkout@v4
     - name: Building production files
       run: |
-        for arg in ./hardware*; do sed -i "s/VERV/${GITHUB_REF_NAME}/" ${arg}/*.kicad_*; \
-        .github/scripts/KiExport.sh -n ${GITHUB_REPOSITORY#*/}_`basename $arg` -v ${GITHUB_REF_NAME} -k $arg -o manufacturing -s -p -g -c -a -b -i; done
+        for arg in ./hardware*; do \
+        python3 .github/scripts/version.py S ${GITHUB_REF_NAME} $arg; \
+        .github/scripts/KiExport.sh -n ${GITHUB_REPOSITORY#*/}_`basename $arg` -v ${GITHUB_REF_NAME} -k $arg -o build -s -p -g -c -a -b -i; done
     - name: Building production files
       uses: softprops/action-gh-release@v1
       with:
         tag_name: ${{ steps.date.outputs.yymmdd }}
-        files: manufacturing/*
+        files: build/*

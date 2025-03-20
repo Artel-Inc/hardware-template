@@ -16,7 +16,7 @@ permissions:
 jobs:
   IssueOrder:
     runs-on: ubuntu-latest
-    container: ghcr.io/inti-cmnb/kicad8_auto:1.7.0
+    container: ghcr.io/inti-cmnb/kicad9_auto:1.8.2
     steps:
     - name: Check out repository code
       uses: actions/checkout@v4

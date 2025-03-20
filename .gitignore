@@ -7,7 +7,6 @@ _autosave-*
 */*-backups/*
 
 # KiCad
-manufacturing/old
 fp-info-cache
 replicate_layout.log
 *.kicad_pro
@@ -19,6 +18,15 @@ replicate_layout.log
 *.kicad_pcb-bak
 ~*.lck
 *.rpt
+build
+
+# Freecad
+*.FCStd1
+
+# Drawio
+*.bkp
+*.dtmp
 
 # Legacy
 hardware*/jlcpcb/gerber
+manufacturing/old
