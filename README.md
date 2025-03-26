@@ -55,6 +55,7 @@ XXX hardware template - transcript
 - Castellated Holes: `No`;`Yes`
 - Edge Plating: `No`;`Yes`
 - Assembly Side: `Both`;`Top`
+- HS-Code: `text`
 
 ## Note:
 
