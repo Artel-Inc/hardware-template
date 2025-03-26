@@ -34,12 +34,32 @@
 
 XXX hardware template - transcript
 
-STACK: XXX
+!!!PHOTO!!!
+
+## Production:
+
+- Different Design: `1`
+- Thickness: `1.6mm`;`1.2`
+- Color: `Green`;`Purple`;`Yellow`;`Red`;`Blue`;`Black`
+- Silkscreen: `White`
+- Material Type: `FR4-Standard`
+- Surface Finish:  `HASL(with lead)`;`ENIG`
+- Outer Copper Weight: `1oz`;`2oz`
+- Inner Copper Weight: `0.5oz`;`1oz`;`2oz`
+- Layers: `JLC04xx1H-7628`
+- Via Covering: `Plugged`;`Epoxy/Copper paste Filled`
+- Min via hole size/diameter: `0.3/0.6`
+- Board Outline Tolerance: `+-0.2mm`
+- Mark on PCB: `Specify Position`;`QR Code`
+- Gold Fingers: `No`;`Yes`
+- Castellated Holes: `No`;`Yes`
+- Edge Plating: `No`;`Yes`
+- Assembly Side: `Both`;`Top`
 
 ## Note:
 
 ## Changelog:
 
-### v 0.0.1
+### v0.0.1
 
 - Init
