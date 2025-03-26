@@ -57,6 +57,8 @@ XXX hardware template - transcript
 - Assembly Side: `Both`;`Top`
 - HS-Code: `text`
 
+## Features:
+
 ## Note:
 
 ## Changelog:
